@@ -4,26 +4,29 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("<-------------> Здравстуйте. Это калькулятор здоровья <------------->");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введитое свой вес (кг): ");
-        int ves = scanner.nextInt();
-        System.out.print("Введитое свой рост (м): ");
-        double rost = scanner.nextDouble();
-        System.out.print("Введитое свой возраст: ");
-        int vosrast = scanner.nextInt();
-        double imt = ves / Math.pow(rost, 2);
-        double ideal = 24.9 * Math.pow(rost, 2);
-        double kalor = 655.1 + (9.563 * ves) + (1.85 * rost) - (4.676 * vosrast);
-        if (imt > 24.9) {
-            kalor = kalor - 500;
-            System.out.println("Рекомендуется снизить вес для достижения идеального веса. \nИдеальный вес: " + ideal + ". Необходимо сбросить: " + (ves - ideal) + "кг. Рекомендуемый дневной прием калорий: " + kalor);
-        } else if (imt < 18.5) {
-            kalor=kalor+500;
-            System.out.println("Рекомендуется увеличить потребление пищи для набора веса. \nИдеальный вес: "+ideal+". Необходимо набрать: "+(ideal - ves)+" кг. Рекомендуемый дневной прием калорий: "+ kalor);
-        }
-        else{
-            System.out.println("Ваш вес находится в пределах нормы. \nИдеальный вес: "+ideal+". Рекомендуемый дневной прием калорий: "+kalor);
+        while (true){
+            System.out.println("-------------------------------------------------\n Проверьте, является ли слово палиндромом\n Введите слов: ");
+            String slovo = scanner.nextLine().toLowerCase().replaceAll(" ","");
+            char[] char1 = slovo.toCharArray();
+            char[] char2 = new char[char1.length];
+            for (int i=0;i!= char1.length;i++){
+                int kk = char1.length-i-1;
+                char2[i] = char1[kk];
+            }
+            int itog=0;
+            for (int i=0;i<= char1.length-1;i++){
+                if(char1[i]==char2[i]){
+                    itog++;
+                }
+            }
+            if(itog==char1.length){
+                System.out.println(" ДА!!!");
+            }
+            else {
+                System.out.println(" Не(((\n Пока");
+                break;
+            }
         }
     }
 }
